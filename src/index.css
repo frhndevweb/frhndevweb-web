@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Dark Portfolio Design System */
+
+@layer base {
+  :root {
+    --background: 240 15% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 240 15% 9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 240 15% 9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 190 100% 50%;
+    --primary-foreground: 240 15% 6%;
+
+    --secondary: 240 15% 15%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 240 10% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 270 80% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 10% 20%;
+    --input: 240 10% 20%;
+    --ring: 190 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradient colors */
+    --gradient-start: 190 100% 50%;
+    --gradient-mid: 220 90% 60%;
+    --gradient-end: 270 80% 60%;
+
+    /* Glow effects */
+    --glow-primary: 190 100% 50%;
+    --glow-accent: 270 80% 60%;
+  }
+
+  .dark {
+    --background: 240 15% 6%;
+    --foreground: 210 40% 98%;
+    --card: 240 15% 9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 240 15% 9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 190 100% 50%;
+    --primary-foreground: 240 15% 6%;
+    --secondary: 240 15% 15%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 240 10% 15%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 270 80% 60%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 240 10% 20%;
+    --input: 240 10% 20%;
+    --ring: 190 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  ::selection {
+    @apply bg-primary/30 text-foreground;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-blue-400 to-accent;
+  }
+
+  .glow-box {
+    box-shadow: 0 0 40px -10px hsl(var(--primary) / 0.4),
+                0 0 80px -20px hsl(var(--accent) / 0.3);
+  }
+
+  .skill-card {
+    @apply relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl p-6
+           transition-all duration-300 ease-out;
+  }
+
+  .skill-card:hover {
+    @apply border-primary/50 bg-card/80;
+    box-shadow: 0 0 30px -5px hsl(var(--primary) / 0.3),
+                inset 0 0 20px hsl(var(--primary) / 0.05);
+    transform: translateY(-4px);
+  }
+
+  .hero-button {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium
+           bg-gradient-to-r from-primary to-blue-500 text-primary-foreground
+           transition-all duration-300 ease-out;
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.4);
+  }
+
+  .hero-button:hover {
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
+    transform: translateY(-2px);
+  }
+
+  .mesh-gradient {
+    background: 
+      radial-gradient(ellipse at 20% 30%, hsl(var(--primary) / 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 70%, hsl(var(--accent) / 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, hsl(var(--gradient-mid) / 0.08) 0%, transparent 60%);
+  }
+
+  .counter-glow {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.8),
+                 0 0 40px hsl(var(--primary) / 0.5);
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .animate-gradient {
+    animation: gradient-shift 8s ease infinite;
+    background-size: 200% 200%;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
