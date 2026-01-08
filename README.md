@@ -103,4 +103,4 @@ Project ini dikembangkan dan dikelola secara mandiri dengan fokus pada:
 
 
 © 2026 — **FRHNDEVWEB**
-Developed with passion by **hannaaffiii**
+Developed with passion by **@frhndevweb**
